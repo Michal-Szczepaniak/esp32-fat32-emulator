@@ -76,7 +76,8 @@ static int32_t onRead(uint32_t lba, uint32_t offset, void* buff, uint32_t buffSi
 
                 if (client.available() == 512) {
                     Serial.printf("Reading response: %d %d\n", client.available(), ESP.getFreeHeap());
-                    client.readBytes((uint8_t*)buff, 512);
+                    BYTE _tmp[512];
+                    client.readBytes(_tmp, 512);
                     Serial.println("readbytes");
 //                    for (int i = 0; i < 512; i++) {
 //                        ((uint8_t*)buff)[i] = _tempBuff[i];
